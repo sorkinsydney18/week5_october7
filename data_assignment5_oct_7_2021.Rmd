@@ -1,6 +1,6 @@
 ---
 title: "Personality and Worldview"
-author: "your name here"
+author: "Sydney Sorkin"
 date: "October 7, 2021"
 output: pdf_document
 urlcolor: blue
@@ -59,6 +59,9 @@ Check the Google Drive for your photo assignments and download the assigned phot
 
 ## Question 2
 Each photo should have at least two people assigned to code it. Confer with each of the people who were also assigned to your photo and see what their ratings were on the PLSCI, as well as their guesses about openness, conscientiousness, and ideology. **What does this tell you about the PLSCI? Read a bit about intercoder (aka inter-rater) reliability and reflect on its importance in research like this.**
+```{r}
+#actual; open: 3, conc.: 5, liberal: 1
+```
 
 
 ## Question 3
