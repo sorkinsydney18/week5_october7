@@ -14,6 +14,7 @@ library(ggplot2) # ggplot
 library(tidyr)
 library(gridExtra) # grid.arrange
 library(psych) #fa.parallel
+library(gt)
 ```
 
 # Measuring Personality
@@ -61,6 +62,7 @@ Check the Google Drive for your photo assignments and download the assigned phot
 Each photo should have at least two people assigned to code it. Confer with each of the people who were also assigned to your photo and see what their ratings were on the PLSCI, as well as their guesses about openness, conscientiousness, and ideology. **What does this tell you about the PLSCI? Read a bit about intercoder (aka inter-rater) reliability and reflect on its importance in research like this.**
 ```{r}
 #actual; open: 3, conc.: 5, liberal: 1
+#partner; open: 3,1.5 conc:3, 2, liberal: 3,4
 ```
 
 
@@ -74,6 +76,33 @@ Each photo should have at least two people assigned to code it. Confer with each
 
 ## Question 5
 Let's see how the class compares to a large dataset of people who have taken one of these personality inventories. [Gosling et al. (2003)](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.113.6704&rep=rep1&type=pdf) report findings from administering the TIPI to about 1800 undergraduates. **Compare the class results to the published norms (you can use either the 15-20 or the 21-30 age range). Make a table or a plot of the class results and then write your thoughts about how these are similar or different to international norms and why that might be the case.**
+```{r, q5}
+
+compare_data <- data.frame(colMeans(personality_data[ ,10:14]))
+
+my_data <- compare_data %>% 
+  mutate(class_means = colMeans.personality_data...10.14..) %>% 
+  
+  #gosling et. al TIPI means from study
+  
+  mutate(gosling_means = c(4.44, 5.23, 5.40, 4.83, 5.38)) %>% 
+  mutate(personality_traits = c("Extraversion", "Agreeableness", "Conscientiousness", "Emotional Stability", "Openness")) %>% 
+  mutate(difference = gosling_means - class_means)
+
+#table comparing averages
+
+my_data %>% 
+  select(personality_traits, class_means, gosling_means, difference) %>% 
+  gt() %>%
+  tab_header(
+    title = md("**Gov 1372 TIPI Averages Compared to Gosling et al. (2003)**"))
+
+ 
+
+
+
+
+```
 
 
 ## Question 6
